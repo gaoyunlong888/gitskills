@@ -1,0 +1,82 @@
+1、水平居中
+
+  1）
+  text-align: center;   只控制行内内容如何相对他的父元素对齐 ( 行内样式有效  子元素为 display: inline-block / inline )
+    优点：简单快捷，容易理解，兼容性非常好
+    缺点：只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水平居中
+
+  2）
+  width: 30px;
+  margin: 0 auto;
+    ( 宽度固定， 左右 margin 设置为 auto )
+    优点：简单；兼容性好
+    缺点：必须定宽，并且值不能为auto；宽度要小于父元素，否则无效
+
+  3）
+  #parent{
+    text-align: center;
+  }
+  .son{
+    display: inline-block; /*改为行内或者行内块级形式，以达到text-align对其生效*/
+  }
+    优点：简单，容易理解，兼容性非常好
+    缺点：只对行内内容有效；属性会继承影响到后代行内内容；块级改为inline-block换行、空格会产生元素间隔
+
+  4） flex 布局
+  #parent{
+    display: flex;
+    justify-content: center;
+  }
+
+2、垂直居中
+
+  1） line-height === height （ line-height 的表现占据中线 ）  // 单行文本
+    #parent{
+      height: 150px;
+      line-height: 150px;  /*与height等值*/
+    }
+      优点：简单；兼容性好
+      缺点：只能用于单行行内内容；要知道高度的值
+
+  2)  多行文本： // 不用了吧。。。
+    #parent{  /*或者用span把所有文字包裹起来，设置display：inline-block转换成图片的方式解决*/
+      height: 150px;
+      line-height: 30px;  /*元素在页面呈现为5行,则line-height的值为height/5*/
+    }
+
+  3） table-cell 实现
+    #parent{
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  4） flex 布局
+    #parent{
+      display: flex;
+      align-item: center;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
