@@ -57,6 +57,47 @@
     }
 
 
+3、 flex 布局
+
+    容器中：
+
+    1） flex-direction： row | row-reverse | column | column-reverse
+        决定主轴方向： 水平方向 | 水平反向 | 垂直方向 | 垂直反向
+
+    2） flex-wrap: nowrap | wrap | wrap-reverse
+        项目一行放不下如何换行： 不换行 | 换行 第一行在上 | 换行 第一行在下
+
+    3) flex-flow: flex-direction | flex-wrap
+        以上两个的简写
+
+    4) justify-content: flex-start | flex-end | center | space-between | space-around
+        在主轴对齐方式
+
+    5）align-items: flex-start | flex-end | center | baseline | stretch
+        在交叉轴上如何对齐
+
+    5） align-content: flex-start | flex-end | center | space-between | space-around | stretch
+        定义了多跟轴线的对齐方式
+
+    项目中：
+
+    1) order: int
+        定义项目的排列顺序，数值越小，排列越靠前，默认值为 0
+
+    2) flex-grow： number
+        定义项目的放大比例，默认值为 0 ，即存在剩余空间也不放大
+
+    3) flex-shrink: number
+        定义项目的缩小比例
+
+    4）flex : 0 | 1 | auto
+
+    5) flex-basis: length | auto
+        项目原本大小 width，height
+
+    6） align-self : auto | flex-start | flex-end | center | baseline | stretch
+        单个项目对齐方式
+
 
 
 

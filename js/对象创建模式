@@ -1,0 +1,120 @@
+ 1、工厂模式
+
+ function createPerson(name, job, age){
+    let person = new Object();
+    person.name = name;
+    person.job = job;
+    person.age = age;
+    person.sayName = function () {
+        alert( this.name );
+    }
+    return person;
+ }
+
+ let person1 = createPerson ( 'zhangsan', 'docter', '20' )
+
+ good: 解决了创建多个相似对象的代码复用问题
+ bad: 没有解决对象辨识的问题（ 怎样知道一个对象的类型是什么 ）
+
+
+ 2、 构造函数模式
+
+  function createPerson(name, job, age){
+     let person = new Object();
+     person.name = name;
+     person.job = job;
+     person.age = age;
+     person.sayName = function () {
+         alert( this.name );
+     }
+     return person;
+  }
+
+  Person.prototype = {
+     constructor: Person
+  }
+
+
+
+ 3、 原型模式
+
+ function Person () {
+ }
+ Person.prototype.name = 'jams';
+ Person.prototype.age = 9;
+ Person.prototype.job = "student";
+ Person.prototype.sayName = function(){
+     alert(this.name);
+ }
+
+ let person1 = new Person();
+ let person2 = new Person();
+
+ person1.sayName === person2.sayName   true
+
+
+
+ 4、 构造函数模式和原型模式结合
+
+ function Person(name, age, job){
+     this.name = name;
+     this.age = age;
+     this.job = job;
+ }
+
+ Person.prototype = {
+     constructor: Person,
+     sayName: function(){
+         alert(this.name);
+     }
+ }
+
+ var person1 = new Person("james"，9，"student");
+
+ var person2 = new Person("kobe"，9，"student");
+
+ console.log(person1.name); // "james"
+ console.log(person2.name); // "kobe"
+ console.log(person1.sayName === person2.sayName); // true
+
+
+
+ 5、 动态原型模式
+
+ function Person(name, age, job){
+     this.name = name;
+     this.age = age;
+     this.job = job;
+
+     if(typeof this.sayName !== "function" ){
+
+         Person.prototype.sayName: function(){
+             alert(this.name);
+         }
+     }
+ }
+
+ var person1 = new Person("james"，9，"student");
+
+ person1.sayName(); // "james"
+
+
+ 6、 寄生构造函数模式
+
+ function Person(name, age, job){
+     var o = new Object();
+     o.name = name;
+     o.age = age;
+     o.job = job;
+     o.sayName = function(){
+         alert(this.name);
+     };
+     return o;
+ }
+
+ var person1 = new Person("james"，9，"student");
+
+
+
+
+
